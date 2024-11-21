@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+@layer components {
+  .login-active {
+    @apply bg-loginGreen-mint text-white rounded-sm;
+  }
+}
