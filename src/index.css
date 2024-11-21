@@ -6,8 +6,22 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+}
+
 @layer components {
   .login-active {
-    @apply bg-loginGreen-mint text-white rounded-sm;
+    @apply bg-loginGreen-mint text-white;
+  }
+
+  .login-input {
+    @apply bg-loginGreen-dark border-white border-[1px] h-10 p-2 outline-none text-white rounded-md w-full mb-4;
   }
 }
