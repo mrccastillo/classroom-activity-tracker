@@ -8,7 +8,10 @@ export default {
           dark: "#193046",
           mint: "#369694",
         },
-        blueWhite: "#f4f6fc",
+        blue: {
+          nav: "#7bb7e0",
+          white: "#f4f6fc",
+        },
       },
     },
   },
