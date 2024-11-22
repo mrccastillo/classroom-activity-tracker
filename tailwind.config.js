@@ -4,10 +4,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        loginGreen: {
+        green: {
           dark: "#193046",
           mint: "#369694",
         },
+        blueWhite: "#f4f6fc",
       },
     },
   },
