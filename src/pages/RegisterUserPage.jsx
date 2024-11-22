@@ -148,7 +148,7 @@ const RegisterUser = (props) => {
                   className="login-input"
                   placeholder="Full Name"
                   name="fullName"
-                  value={signupDetails.confirmPassword}
+                  value={signupDetails.fullName}
                   onChange={handleInputChange}
                 />
                 <input
@@ -156,17 +156,17 @@ const RegisterUser = (props) => {
                   className="login-input"
                   placeholder="Email"
                   name="email"
-                  value={signupDetails.confirmPassword}
+                  value={signupDetails.email}
                   onChange={handleInputChange}
                 />
-                <input
+                {/* <input
                   type="text"
                   className="login-input"
                   placeholder="Confirm Password"
                   name="confirmPassword"
                   value={signupDetails.confirmPassword}
                   onChange={handleInputChange}
-                />
+                /> */}
               </>
             )}
           </>

@@ -1,7 +1,13 @@
 import React from "react";
+import Sidebar from "../components/Sidebar/Sidebar";
 
 const QuestionAndAnswers = (props) => {
-  return <div>q and a</div>;
+  return (
+    <>
+      <Sidebar />
+      <p className="">Question and Answers</p>
+    </>
+  );
 };
 
 export default QuestionAndAnswers;

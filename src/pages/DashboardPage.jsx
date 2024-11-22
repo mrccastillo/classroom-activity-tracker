@@ -5,7 +5,7 @@ const Dashboard = (props) => {
   return (
     <>
       <Sidebar />
-      <p className="text-center bg-black">dashboard</p>
+      <p className="">dashboard</p>
     </>
   );
 };
