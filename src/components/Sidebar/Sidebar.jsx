@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Sidebar = ({ activeTab }) => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const navigate = useNavigate();
 
   return (
@@ -34,7 +34,12 @@ const Sidebar = ({ activeTab }) => {
           >
             X
           </div>
-          <div className="flex gap-6 mb-8">
+          <div
+            className="flex gap-6 mb-8"
+            onClick={() => {
+              navigate("/user/MarcLowelCastillo");
+            }}
+          >
             <img
               src="https://www.pixelstalk.net/wp-content/uploads/2016/07/3840x2160-Images-Free-Download.jpg"
               className="h-12 w-12 rounded-full"
@@ -100,7 +105,12 @@ const Sidebar = ({ activeTab }) => {
         className={`hidden md:flex md:flex-col md:justify-between md:right-0 md:min-w-[20rem] md:h-screen md:bg-blue-white md:p-8 md:shadow-xl md:backdrop-blur-sm md:w-[10rem]`}
       >
         <div>
-          <div className="flex gap-6 mb-8">
+          <div
+            className="flex gap-6 mb-8"
+            onClick={() => {
+              navigate("/user/MarcLowelCastillo");
+            }}
+          >
             <img
               src="https://www.pixelstalk.net/wp-content/uploads/2016/07/3840x2160-Images-Free-Download.jpg"
               className="h-12 w-12 rounded-full"
