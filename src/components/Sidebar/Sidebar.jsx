@@ -2,9 +2,8 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Sidebar = (props) => {
+const Sidebar = ({ activeTab }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  const [active, setActive] = useState("Dashboard");
   const navigate = useNavigate();
 
   return (
@@ -42,11 +41,13 @@ const Sidebar = (props) => {
             />
             <div>
               <p className="font-bold text-lg">Marc Lowel Castillo</p>
-              <p>Class Officer</p>
+              <p className="text-xs">Class Officer</p>
             </div>
           </div>
           <p
-            className="sidebar-option sidebar-option-active"
+            className={`sidebar-option ${
+              activeTab === "Dashboard" && "sidebar-option-active"
+            }`}
             onClick={() => {
               navigate("/dashboard");
             }}
@@ -54,7 +55,9 @@ const Sidebar = (props) => {
             Dashboard
           </p>
           <p
-            className="sidebar-option"
+            className={`sidebar-option ${
+              activeTab === "Subjects" && "sidebar-option-active"
+            }`}
             onClick={() => {
               navigate("/subjects");
             }}
@@ -62,7 +65,9 @@ const Sidebar = (props) => {
             Subjects
           </p>
           <p
-            className="sidebar-option"
+            className={`sidebar-option ${
+              activeTab === "QA" && "sidebar-option-active"
+            }`}
             onClick={() => {
               navigate("/qa");
             }}
@@ -70,7 +75,9 @@ const Sidebar = (props) => {
             Question & Answers
           </p>
           <p
-            className="sidebar-option"
+            className={`sidebar-option ${
+              activeTab === "ClassList" && "sidebar-option-active"
+            }`}
             onClick={() => {
               navigate("/classlist");
             }}
@@ -90,7 +97,7 @@ const Sidebar = (props) => {
 
       {/* Desktop Nav*/}
       <div
-        className={`hidden md:flex md:flex-col md:justify-between md:right-0 md:min-w-[25rem] md:h-screen md:bg-blue-white md:p-8 md:shadow-2xl md:backdrop-blur-sm md:w-[10rem]`}
+        className={`hidden md:flex md:flex-col md:justify-between md:right-0 md:min-w-[20rem] md:h-screen md:bg-blue-white md:p-8 md:shadow-xl md:backdrop-blur-sm md:w-[10rem]`}
       >
         <div>
           <div className="flex gap-6 mb-8">
@@ -100,11 +107,13 @@ const Sidebar = (props) => {
             />
             <div>
               <p className="font-bold text-lg">Marc Lowel Castillo</p>
-              <p>Class Officer</p>
+              <p className="text-xs">Class Officer</p>
             </div>
           </div>
           <p
-            className="sidebar-option sidebar-option-active"
+            className={`sidebar-option ${
+              activeTab === "Dashboard" && "sidebar-option-active"
+            }`}
             onClick={() => {
               navigate("/dashboard");
             }}
@@ -112,7 +121,9 @@ const Sidebar = (props) => {
             Dashboard
           </p>
           <p
-            className="sidebar-option"
+            className={`sidebar-option ${
+              activeTab === "Subjects" && "sidebar-option-active"
+            }`}
             onClick={() => {
               navigate("/subjects");
             }}
@@ -120,7 +131,9 @@ const Sidebar = (props) => {
             Subjects
           </p>
           <p
-            className="sidebar-option"
+            className={`sidebar-option ${
+              activeTab === "QA" && "sidebar-option-active"
+            }`}
             onClick={() => {
               navigate("/qa");
             }}
@@ -128,7 +141,9 @@ const Sidebar = (props) => {
             Question & Answers
           </p>
           <p
-            className="sidebar-option"
+            className={`sidebar-option ${
+              activeTab === "ClassList" && "sidebar-option-active"
+            }`}
             onClick={() => {
               navigate("/classlist");
             }}

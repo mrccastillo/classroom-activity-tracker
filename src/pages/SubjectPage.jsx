@@ -6,8 +6,10 @@ const SubjectPage = (props) => {
   const { subjectId } = useParams();
   return (
     <>
-      <Sidebar />
-      <p className="">subject: {subjectId}</p>
+      <div className="flex justify-between">
+        <Sidebar activeTab="Subjects" />
+        <p className="">subject: {subjectId}</p>
+      </div>
     </>
   );
 };

@@ -4,8 +4,10 @@ import Sidebar from "../components/Sidebar/Sidebar";
 const ClassList = (props) => {
   return (
     <>
-      <Sidebar />
-      <div className="">classlist</div>
+      <div className="flex">
+        <Sidebar activeTab="ClassList" />
+        <div className="">classlist</div>
+      </div>
     </>
   );
 };

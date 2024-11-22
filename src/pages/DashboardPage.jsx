@@ -4,8 +4,10 @@ import Sidebar from "../components/Sidebar/Sidebar";
 const Dashboard = (props) => {
   return (
     <>
-      <Sidebar />
-      <p className="">dashboard</p>
+      <div className="flex justify-between">
+        <Sidebar activeTab="Dashboard" />
+        <p className="">dashboard</p>
+      </div>
     </>
   );
 };
