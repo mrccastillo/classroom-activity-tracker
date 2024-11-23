@@ -3,6 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      backgroundImage: {
+        "nav-open-icon": "url('./src/assets/icons/menu.png')",
+      },
       colors: {
         green: {
           dark: "#193046",

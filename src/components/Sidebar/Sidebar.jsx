@@ -11,17 +11,17 @@ const Sidebar = ({ activeTab }) => {
       {/* Mobile Nav*/}
       {!isSidebarOpen && (
         <div
-          className="absolute top-0 right-0 p-4 cursor-pointer md:hidden"
+          className="absolute bg-nav-open-icon bg-contain bg-no-repeat bg-center w-8 h-8 top-4 right-4 p-4 cursor-pointer md:hidden"
           onClick={() => {
             setIsSidebarOpen(true);
           }}
         >
-          openNav
+          {/* openNav */}
         </div>
       )}
 
       <div
-        className={`absolute flex flex-col justify-between right-0 min-w-[75%] h-screen bg-blue-white p-8 shadow-2xl backdrop-blur-sm ${
+        className={`fixed flex flex-col justify-between right-0 min-w-[75%] h-screen bg-blue-white/70 p-8 shadow-2xl backdrop-blur-lg ${
           !isSidebarOpen && "translate-x-full"
         } transition-all duration-200 md:hidden`}
       >
