@@ -14,6 +14,12 @@ html {
 
 @media (max-width: 640px) {
   html {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 1024px) {
+  html {
     font-size: 14px;
   }
 }
@@ -25,5 +31,13 @@ html {
 
   .login-input {
     @apply bg-green-dark border-white border-[1px] h-10 p-2 outline-none text-white rounded-md w-full mb-4;
+  }
+
+  .sidebar-option {
+    @apply bg-white text-center rounded-lg p-4 font-semibold hover:bg-blue-nav/50 cursor-pointer transition-all duration-300 mb-4;
+  }
+
+  .sidebar-option-active {
+    @apply bg-blue-nav text-white;
   }
 }

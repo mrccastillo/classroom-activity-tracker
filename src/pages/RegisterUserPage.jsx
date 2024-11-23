@@ -11,6 +11,7 @@ const initialState = {
     confirmPassword: "",
     fullName: "",
     email: "",
+    section: "",
   },
 };
 
@@ -148,7 +149,7 @@ const RegisterUser = (props) => {
                   className="login-input"
                   placeholder="Full Name"
                   name="fullName"
-                  value={signupDetails.confirmPassword}
+                  value={signupDetails.fullName}
                   onChange={handleInputChange}
                 />
                 <input
@@ -156,17 +157,19 @@ const RegisterUser = (props) => {
                   className="login-input"
                   placeholder="Email"
                   name="email"
-                  value={signupDetails.confirmPassword}
+                  value={signupDetails.email}
                   onChange={handleInputChange}
                 />
-                <input
-                  type="text"
-                  className="login-input"
-                  placeholder="Confirm Password"
-                  name="confirmPassword"
-                  value={signupDetails.confirmPassword}
+                <select
+                  className="login-input opacity-90"
+                  name="section"
+                  value={signupDetails.section}
                   onChange={handleInputChange}
-                />
+                >
+                  <option value="">Section</option>
+                  <option value="CS 1-5">CS 1-1</option>
+                  <option value="CS 1-5">CS 1-5</option>
+                </select>
               </>
             )}
           </>
