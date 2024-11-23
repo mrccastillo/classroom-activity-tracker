@@ -102,7 +102,7 @@ const Sidebar = ({ activeTab }) => {
 
       {/* Desktop Nav*/}
       <div
-        className={`hidden md:flex md:flex-col md:justify-between md:right-0 md:min-w-[20rem] md:h-screen md:bg-blue-white md:p-8 md:shadow-xl md:backdrop-blur-sm md:w-[10rem]`}
+        className={`hidden rounded-br-3xl rounded-tr-3xl md:flex md:flex-col md:justify-between md:right-0 md:min-w-[20rem] md:h-screen md:bg-blue-white md:p-8 md:shadow-xl md:backdrop-blur-sm md:w-[10rem]`}
       >
         <div>
           <div
