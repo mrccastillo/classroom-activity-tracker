@@ -15,9 +15,9 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/qa" element={<QuestionAndAnswers />} />
         <Route path="/classlist" element={<ClassList />} />
-        <Route path="/user/:userId" element={<UserProfile />} />
         <Route path="/subjects" element={<SubjectListPage />} />
         <Route path="/subjects/:subjectId" element={<SubjectPage />} />
+        <Route path="/user/:userId" element={<UserProfile />} />
         <Route path="*" element={<div>404</div>} />
       </Routes>
     </BrowserRouter>
