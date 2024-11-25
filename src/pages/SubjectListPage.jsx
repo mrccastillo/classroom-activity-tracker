@@ -11,14 +11,54 @@ const SubjectListPage = (props) => {
         <Sidebar activeTab="Subjects" />
         <div className="p-4 w-screen flex flex-col h-screen md:p-8 xl:p-32">
           <h2 className="text-2xl font-bold lg:text-4xl">Subjects</h2>
-          <div className="grid grid-cols-1 mt-4">
+          <div className="flex flex-col gap-2 mt-4 flex-wrap md:flex-row md:gap-4">
+            <div
+              className="subject "
+              onClick={() => {
+                navigate("/subjects/Computer Programming");
+              }}
+            >
+              <p className="text-center">Computer Programming</p>
+            </div>
             <div
               className="subject"
               onClick={() => {
                 navigate("/subjects/Computer Programming");
               }}
             >
-              <p>Computer Programming</p>
+              <p className="text-center">Computer Programming</p>
+            </div>
+            <div
+              className="subject"
+              onClick={() => {
+                navigate("/subjects/Computer Programming");
+              }}
+            >
+              <p className="text-center">Computer Programming</p>
+            </div>
+            <div
+              className="subject"
+              onClick={() => {
+                navigate("/subjects/Computer Programming");
+              }}
+            >
+              <p className="text-center">Computer Programming</p>
+            </div>
+            <div
+              className="subject"
+              onClick={() => {
+                navigate("/subjects/Computer Programming");
+              }}
+            >
+              <p className="text-center">Computer Programming</p>
+            </div>
+            <div
+              className="subject"
+              onClick={() => {
+                navigate("/subjects/Computer Programming");
+              }}
+            >
+              <p className="text-center">Computer Programming</p>
             </div>
           </div>
         </div>
