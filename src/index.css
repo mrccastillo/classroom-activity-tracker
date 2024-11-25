@@ -7,6 +7,15 @@
   font-family: "Poppins", serif;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "League Spartan", serif;
+}
+
 html {
   font-size: 16px;
   background-color: #fdfffc;
@@ -39,5 +48,9 @@ html {
 
   .sidebar-option-active {
     @apply bg-blue-nav text-white;
+  }
+
+  .subject {
+    @apply bg-[#f4c5cc] flex justify-center items-center rounded-lg p-12 h-20 border-black border-[1px] font-semibold cursor-pointer md:w-52 md:h-52;
   }
 }
