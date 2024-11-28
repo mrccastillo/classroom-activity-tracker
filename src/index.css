@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+/* width */
+::-webkit-scrollbar {
+  width: 0;
+  border-radius: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
 * {
   box-sizing: border-box;
   font-family: "Poppins", serif;
@@ -34,6 +52,19 @@ html {
 }
 
 @layer components {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold;
+  }
+
+  h2 {
+    @apply text-xl;
+  }
+
   .login-active {
     @apply bg-green-mint text-white;
   }
