@@ -23,46 +23,6 @@ const SubjectListPage = (props) => {
               <p className="text-center">Computer Programming</p>
             </div>
             <div
-              className="subject"
-              onClick={() => {
-                navigate("/subjects/Computer Programming");
-              }}
-            >
-              <p className="text-center">Computer Programming</p>
-            </div>
-            <div
-              className="subject"
-              onClick={() => {
-                navigate("/subjects/Computer Programming");
-              }}
-            >
-              <p className="text-center">Computer Programming</p>
-            </div>
-            <div
-              className="subject"
-              onClick={() => {
-                navigate("/subjects/Computer Programming");
-              }}
-            >
-              <p className="text-center">Computer Programming</p>
-            </div>
-            <div
-              className="subject"
-              onClick={() => {
-                navigate("/subjects/Computer Programming");
-              }}
-            >
-              <p className="text-center">Computer Programming</p>
-            </div>
-            <div
-              className="subject"
-              onClick={() => {
-                navigate("/subjects/Computer Programming");
-              }}
-            >
-              <p className="text-center">Computer Programming</p>
-            </div>
-            <div
               className="subject bg-gray-200/50"
               onClick={() => {
                 setIsAddSubjectOpen(true);

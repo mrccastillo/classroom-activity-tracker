@@ -65,6 +65,10 @@ html {
     @apply text-xl;
   }
 
+  input {
+    @apply opacity-60 focus:opacity-100;
+  }
+
   .login-active {
     @apply bg-green-mint text-white;
   }
