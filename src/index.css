@@ -52,6 +52,10 @@ html {
 }
 
 @layer components {
+  /* body {
+    @apply dark:bg-slate-900;
+  } */
+
   h1,
   h2,
   h3,

@@ -34,7 +34,7 @@ const Sidebar = ({ activeTab }) => {
       )}
 
       <nav
-        className={`fixed flex flex-col justify-between right-0 min-w-[75%] h-screen bg-blue-white/70 p-8 shadow-2xl backdrop-blur-lg ${
+        className={`z-20 fixed flex flex-col justify-between right-0 min-w-[75%] h-screen bg-gradient-to-tr from-white to-blue-200/30 p-8 shadow-2xl backdrop-blur-lg ${
           !isSidebarOpen && "translate-x-full"
         } transition-all duration-200 md:hidden`}
       >
@@ -115,7 +115,7 @@ const Sidebar = ({ activeTab }) => {
 
       {/* Desktop Nav*/}
       <nav
-        className={`hidden rounded-br-3xl rounded-tr-3xl md:flex md:flex-col md:justify-between md:right-0 md:min-w-[20rem] md:h-screen md:bg-blue-white md:p-8 md:shadow-xl md:backdrop-blur-sm md:w-[10rem]`}
+        className={`hidden rounded-br-3xl rounded-tr-3xl bg-gradient-to-tr from-white to-blue-200/30 md:flex md:flex-col md:justify-between md:right-0 md:min-w-[20rem] md:h-screen md:bg-blue-white md:p-8 md:shadow-xl md:backdrop-blur-sm md:w-[10rem]`}
       >
         <div>
           <div
