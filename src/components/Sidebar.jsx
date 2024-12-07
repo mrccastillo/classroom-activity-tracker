@@ -94,6 +94,16 @@ const Sidebar = ({ activeTab }) => {
           </p>
           <p
             className={`sidebar-option ${
+              activeTab === "Announcements" && "sidebar-option-active"
+            }`}
+            onClick={() => {
+              navigate("/announcements");
+            }}
+          >
+            Announcements
+          </p>
+          <p
+            className={`sidebar-option ${
               activeTab === "ClassList" && "sidebar-option-active"
             }`}
             onClick={() => {
@@ -162,6 +172,16 @@ const Sidebar = ({ activeTab }) => {
             }}
           >
             Question & Answers
+          </p>
+          <p
+            className={`sidebar-option ${
+              activeTab === "Announcements" && "sidebar-option-active"
+            } xl:hidden`}
+            onClick={() => {
+              navigate("/announcements");
+            }}
+          >
+            Announcements
           </p>
           <p
             className={`sidebar-option ${
