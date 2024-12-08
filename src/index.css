@@ -45,12 +45,6 @@ html {
   }
 }
 
-@media (max-width: 1024px) {
-  html {
-    font-size: 14px;
-  }
-}
-
 @layer components {
   /* body {
     @apply dark:bg-slate-900;
@@ -94,6 +88,6 @@ html {
   }
 
   .question {
-    @apply bg-white w-full min-h-40 shadow-md rounded-lg p-4 py-6 mt-6;
+    @apply bg-white w-11/12 min-h-40 shadow-md rounded-lg p-4 py-6 mt-6;
   }
 }
