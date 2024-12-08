@@ -1,7 +1,10 @@
 import React from "react";
 import Sidebar from "../components/Sidebar";
+import { useNavigate } from "react-router-dom";
 
 const QuestionAndAnswers = (props) => {
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="md:flex">
@@ -14,10 +17,10 @@ const QuestionAndAnswers = (props) => {
               <button className="w-full p-2 bg-blue-nav mt-4 rounded-full text-white shadow-md  lg:mb-4">
                 Ask a Question
               </button>
-              <div className="question">
+              <div className=" w-full question md:w-11/12">
                 {" "}
                 <div
-                  className="flex gap-6 mb-4"
+                  className="flex gap-6 mb-4 pb-4 border-b-[1px] border-black/20 cursor-pointer"
                   onClick={() => {
                     navigate("/user/MarcLowelCastillo");
                   }}
@@ -49,7 +52,7 @@ const QuestionAndAnswers = (props) => {
               <div className="question w-full">
                 {" "}
                 <div
-                  className="flex gap-6 mb-4"
+                  className="flex gap-6 mb-4  pb-4 border-b-[1px] border-black/20 cursor-pointer"
                   onClick={() => {
                     navigate("/user/MarcLowelCastillo");
                   }}

@@ -8,7 +8,7 @@ const Dashboard = (props) => {
         <Sidebar activeTab="Dashboard" />
         <div className="z-10 p-4 w-screen flex flex-col h-screen md:p-8 lg:justify-center lg:items-center ">
           <h2 className="text-2xl font-bold lg:text-4xl">Dashboard</h2>
-          <div className="grid grid-cols-2 grid-rows-3 bg-white/90 backdrop-blur-3xl gap-4 h-[calc(100vh-7rem)] w-full mt-4 lg:grid-cols-7  lg:p-4 lg:border-[1px] lg:max-h-[40rem] xl:max-w-[80rem] xl:border-2 border-black rounded-2xl ">
+          <div className="grid grid-cols-2 grid-rows-3 bg-white/70 backdrop-blur-3xl gap-4 h-[calc(100vh-7rem)] w-full mt-4 lg:grid-cols-7  lg:p-4 lg:border-[1px] lg:max-h-[40rem] xl:max-w-[80rem] xl:border-2 border-black rounded-2xl ">
             <div className="overflow-y-auto p-4 col-span-2 w-full rounded-xl order-1 border-[1px] border-black lg:order-3 lg:col-span-3 lg:row-span-3">
               <h2 className="text-center text-xl font-bold ">Todos</h2>
               <div className="mt-4 bg-blue-200 p-4 rounded-lg">
@@ -52,7 +52,7 @@ const Dashboard = (props) => {
           </div>
         </div>
       </div>
-      <div className="hidden lg:block lg:absolute lg:opacity-40 lg:h-[35rem] lg:w-[50rem] lg:left-2/4 lg:bottom-28 lg:bg-gradient-to-br  lg:from-purple-500 lg:to-pink-500 lg:rounded-full lg:blur-3xl "></div>
+      <div className="hidden absolute opacity-40 lg:block  lg:h-[35rem] lg:w-[35rem] lg:right-1/4 lg:bottom-28 lg:bg-gradient-to-br  lg:from-purple-500 lg:to-pink-500 lg:rounded-full lg:blur-3xl "></div>
     </>
   );
 };

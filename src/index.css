@@ -39,7 +39,7 @@ html {
   background-color: #fdfffc;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 1024px) {
   html {
     font-size: 12px;
   }

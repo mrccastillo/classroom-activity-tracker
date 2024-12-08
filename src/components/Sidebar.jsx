@@ -48,7 +48,7 @@ const Sidebar = ({ activeTab }) => {
             X
           </div>
           <div
-            className="flex gap-6 mb-8"
+            className="flex gap-6 mb-8 cursor-pointer"
             onClick={() => {
               navigate("/user/MarcLowelCastillo");
             }}
@@ -125,11 +125,11 @@ const Sidebar = ({ activeTab }) => {
 
       {/* Desktop Nav*/}
       <nav
-        className={`hidden rounded-br-3xl rounded-tr-3xl bg-gradient-to-tr from-white to-blue-200/30 md:flex md:flex-col md:justify-between md:right-0 md:min-w-[20rem] md:h-screen md:bg-blue-white md:p-8 md:shadow-xl md:backdrop-blur-sm md:w-[10rem]`}
+        className={`z-10 hidden rounded-br-3xl rounded-tr-3xl bg-gradient-to-tr from-white to-blue-200/30 md:flex md:flex-col md:justify-between md:right-0 md:min-w-[20rem] md:h-screen md:bg-blue-white md:p-8 md:shadow-xl md:backdrop-blur-sm md:w-[10rem]`}
       >
         <div>
           <div
-            className="flex gap-6 mb-8"
+            className="flex gap-6 mb-8 cursor-pointer"
             onClick={() => {
               navigate("/user/MarcLowelCastillo");
             }}
