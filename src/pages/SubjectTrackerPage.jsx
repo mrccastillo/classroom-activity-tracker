@@ -1,4 +1,5 @@
 import React from "react";
+import Sidebar from "../components/Sidebar";
 
 const SubjectTracker = (props) => {
   return (

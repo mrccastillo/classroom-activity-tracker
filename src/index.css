@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+/* width */
+::-webkit-scrollbar {
+  width: 0;
+  border-radius: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
 * {
   box-sizing: border-box;
   font-family: "Poppins", serif;
@@ -21,19 +39,34 @@ html {
   background-color: #fdfffc;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 1024px) {
   html {
     font-size: 12px;
   }
 }
 
-@media (max-width: 1024px) {
-  html {
-    font-size: 14px;
-  }
-}
-
 @layer components {
+  /* body {
+    @apply dark:bg-slate-900;
+  } */
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold;
+  }
+
+  h2 {
+    @apply text-xl;
+  }
+
+  input {
+    @apply opacity-60 focus:opacity-100;
+  }
+
   .login-active {
     @apply bg-green-mint text-white;
   }
@@ -52,5 +85,9 @@ html {
 
   .subject {
     @apply bg-[#f4c5cc] flex justify-center items-center rounded-lg p-12 h-20 border-black border-[1px] font-semibold cursor-pointer md:w-52 md:h-52;
+  }
+
+  .question {
+    @apply bg-white w-11/12 min-h-40 shadow-md rounded-lg p-4 py-6 mt-6;
   }
 }

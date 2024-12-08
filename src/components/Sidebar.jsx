@@ -11,17 +11,30 @@ const Sidebar = ({ activeTab }) => {
       {/* Mobile Nav*/}
       {!isSidebarOpen && (
         <div
-          className="absolute bg-nav-open-icon bg-contain bg-no-repeat bg-center w-8 h-8 top-4 right-4 p-4 cursor-pointer md:hidden"
+          className="md:hidden"
           onClick={() => {
             setIsSidebarOpen(true);
           }}
         >
-          {/* openNav */}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className=" absolute h-8 w-8 top-4 right-4 md:hidden"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
         </div>
       )}
 
-      <div
-        className={`fixed flex flex-col justify-between right-0 min-w-[75%] h-screen bg-blue-white/70 p-8 shadow-2xl backdrop-blur-lg ${
+      <nav
+        className={`z-20 fixed flex flex-col justify-between right-0 min-w-[75%] h-screen bg-gradient-to-tr from-white to-blue-200/30 p-8 shadow-2xl backdrop-blur-lg ${
           !isSidebarOpen && "translate-x-full"
         } transition-all duration-200 md:hidden`}
       >
@@ -35,7 +48,7 @@ const Sidebar = ({ activeTab }) => {
             X
           </div>
           <div
-            className="flex gap-6 mb-8"
+            className="flex gap-6 mb-8 cursor-pointer"
             onClick={() => {
               navigate("/user/MarcLowelCastillo");
             }}
@@ -81,6 +94,16 @@ const Sidebar = ({ activeTab }) => {
           </p>
           <p
             className={`sidebar-option ${
+              activeTab === "Announcements" && "sidebar-option-active"
+            }`}
+            onClick={() => {
+              navigate("/announcements");
+            }}
+          >
+            Announcements
+          </p>
+          <p
+            className={`sidebar-option ${
               activeTab === "ClassList" && "sidebar-option-active"
             }`}
             onClick={() => {
@@ -98,15 +121,15 @@ const Sidebar = ({ activeTab }) => {
         >
           Logout
         </button>
-      </div>
+      </nav>
 
       {/* Desktop Nav*/}
-      <div
-        className={`hidden rounded-br-3xl rounded-tr-3xl md:flex md:flex-col md:justify-between md:right-0 md:min-w-[20rem] md:h-screen md:bg-blue-white md:p-8 md:shadow-xl md:backdrop-blur-sm md:w-[10rem]`}
+      <nav
+        className={`z-10 hidden rounded-br-3xl rounded-tr-3xl bg-gradient-to-tr from-white to-blue-200/30 md:flex md:flex-col md:justify-between md:right-0 md:min-w-[20rem] md:h-screen md:bg-blue-white md:p-8 md:shadow-xl md:backdrop-blur-sm md:w-[10rem]`}
       >
         <div>
           <div
-            className="flex gap-6 mb-8"
+            className="flex gap-6 mb-8 cursor-pointer"
             onClick={() => {
               navigate("/user/MarcLowelCastillo");
             }}
@@ -152,6 +175,16 @@ const Sidebar = ({ activeTab }) => {
           </p>
           <p
             className={`sidebar-option ${
+              activeTab === "Announcements" && "sidebar-option-active"
+            } xl:hidden`}
+            onClick={() => {
+              navigate("/announcements");
+            }}
+          >
+            Announcements
+          </p>
+          <p
+            className={`sidebar-option ${
               activeTab === "ClassList" && "sidebar-option-active"
             }`}
             onClick={() => {
@@ -169,7 +202,7 @@ const Sidebar = ({ activeTab }) => {
         >
           Logout
         </button>
-      </div>
+      </nav>
     </>
   );
 };
