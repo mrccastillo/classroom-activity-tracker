@@ -1,9 +1,12 @@
-import React from "react";
+import { useState } from "react";
 import Sidebar from "../components/Sidebar";
+import AddQuestionModal from "../components/modals/AddQuestionModal";
 import { useNavigate } from "react-router-dom";
 
 const QuestionAndAnswers = (props) => {
   const navigate = useNavigate();
+
+  const [isQuestionsModalOpen, setIsQuestionsModalOpen] = useState(false);
 
   return (
     <>
@@ -14,7 +17,12 @@ const QuestionAndAnswers = (props) => {
           <div className="grid grid-cols-3 gap-8 h-full">
             {/* left side div in desktop */}
             <div className="flex flex-col items-center col-span-3 xl:col-span-2">
-              <button className="w-full p-2 bg-blue-nav mt-4 rounded-full text-white shadow-md  lg:mb-4">
+              <button
+                className="w-full p-2 bg-blue-nav mt-4 rounded-full text-white shadow-md  lg:mb-4"
+                onClick={() => {
+                  setIsQuestionsModalOpen(true);
+                }}
+              >
                 Ask a Question
               </button>
               <div className=" w-full question md:w-11/12">
@@ -80,6 +88,13 @@ const QuestionAndAnswers = (props) => {
             </div>
           </div>
         </div>
+        {isQuestionsModalOpen && (
+          <AddQuestionModal
+            onCloseModal={() => {
+              setIsQuestionsModalOpen(false);
+            }}
+          />
+        )}
       </div>
     </>
   );

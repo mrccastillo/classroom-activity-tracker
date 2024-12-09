@@ -133,7 +133,7 @@ const RegisterUser = (props) => {
                   onChange={handleInputChange}
                 />
                 <input
-                  type="confirm-password"
+                  type="password"
                   className="login-input"
                   placeholder="Confirm Password"
                   name="confirmPassword"
@@ -167,7 +167,7 @@ const RegisterUser = (props) => {
                   onChange={handleInputChange}
                 >
                   <option value="">Section</option>
-                  <option value="CS 1-5">CS 1-1</option>
+                  <option value="CS 1-1">CS 1-1</option>
                   <option value="CS 1-5">CS 1-5</option>
                 </select>
               </>
