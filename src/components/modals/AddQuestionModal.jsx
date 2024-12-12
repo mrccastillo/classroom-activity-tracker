@@ -1,6 +1,6 @@
 import React from "react";
 
-const AddQuestionModal = ({ onCloseModal }) => {
+const AddQuestionModal = ({ dispatch }) => {
   return (
     <div className="flex flex-col gap-4 fixed h-[30rem] w-[20rem] p-4 rounded-lg bg-white backdrop-blur-md top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-black border-[1px] overflow-hidden">
       <h2 className="text-center">Ask a Question</h2>
@@ -31,7 +31,7 @@ const AddQuestionModal = ({ onCloseModal }) => {
       </div>
       <div
         className="absolute top-0 right-0 p-4 cursor-pointer "
-        onClick={onCloseModal}
+        onClick={() => dispatch({ type: "TOGGLE_QUESTION_MODAL" })}
       >
         X
       </div>

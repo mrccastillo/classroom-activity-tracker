@@ -195,7 +195,7 @@ const Sidebar = ({ activeTab }) => {
           </p>
         </div>
         <button
-          className="sidebar-option w-full bg-[#f4c5cc]"
+          className="sidebar-option w-full bg-[#f4c5cc] hover:bg-[#f4c5cc] "
           onClick={() => {
             navigate("/");
           }}
