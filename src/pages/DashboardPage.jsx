@@ -41,8 +41,12 @@ const Dashboard = (props) => {
               <h2 className="text-xl font-bold z-10">Pending Tasks</h2>
               <p className=" text-5xl font-bold z-10">12</p>
             </div>
-            <div className="p-4   border-black border-[1px] col-span-1 rounded-xl order-2 lg:order-2 lg:col-span-2">
-              date
+            <div className="relative p-4 border-black border-[1px] col-span-1 flex flex-col justify-center items-center rounded-xl order-2 lg:order-2 lg:col-span-2">
+              <h2 className="text-xl font-bold z-10">December</h2>
+              <p className=" text-5xl font-bold z-10">13</p>
+              <button className="absolute text-xs bottom-4 hover:underline">
+                Change Date
+              </button>
             </div>
             <div className="p-4   border-black border-[1px] text-xs col-span-2 row-span-2 w-full h-full rounded-xl order-4 lg:text-sm lg:order-4 lg:col-span-4">
               <div className=" bg-gradient-to-l  from-white/30 to-pink-200/30 p-4 rounded-lg border-black border-[1px]">
