@@ -1,7 +1,10 @@
 import React from "react";
 import Sidebar from "../components/Sidebar";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = (props) => {
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="md:flex">
@@ -49,7 +52,12 @@ const Dashboard = (props) => {
               </button>
             </div>
             <div className="p-4   border-black border-[1px] text-xs col-span-2 row-span-2 w-full h-full rounded-xl order-4 lg:text-sm lg:order-4 lg:col-span-4">
-              <div className=" bg-gradient-to-l  from-white/30 to-pink-200/30 p-4 rounded-lg border-black border-[1px]">
+              <div
+                className=" bg-gradient-to-l  from-white/30 to-pink-200/30 p-4 rounded-lg border-black border-[1px]"
+                onClick={() => {
+                  navigate("/qa");
+                }}
+              >
                 <p className="font-semibold">Marc Lowel J. Castillo</p>
                 <p>
                   Lorem ipsum dolor sit, amet consectetur adipisicing elit.

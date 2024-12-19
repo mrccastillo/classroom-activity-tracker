@@ -1,8 +1,7 @@
-import React from "react";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate, NavLink, Link } from "react-router-dom";
 
-const Sidebar = ({ activeTab }) => {
+const Sidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -18,7 +17,7 @@ const Sidebar = ({ activeTab }) => {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className=" absolute h-8 w-8 top-4 right-4 md:hidden"
+            className="absolute h-8 w-8 top-4 right-4 md:hidden"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -47,71 +46,60 @@ const Sidebar = ({ activeTab }) => {
           >
             X
           </div>
-          <div
+          <Link
+            to="/user/MarcLowelCastillo"
             className="flex gap-6 mb-8 cursor-pointer"
-            onClick={() => {
-              navigate("/user/MarcLowelCastillo");
-            }}
           >
             <img
               src="https://www.pixelstalk.net/wp-content/uploads/2016/07/3840x2160-Images-Free-Download.jpg"
               className="h-12 w-12 rounded-full"
+              alt="User"
             />
             <div>
               <p className="font-bold text-lg">Marc Lowel Castillo</p>
               <p className="text-xs">Class Officer</p>
             </div>
-          </div>
-          <p
-            className={`sidebar-option ${
-              activeTab === "Dashboard" && "sidebar-option-active"
-            }`}
-            onClick={() => {
-              navigate("/dashboard");
-            }}
+          </Link>
+          <NavLink
+            to="/dashboard"
+            className={({ isActive }) =>
+              `sidebar-option ${isActive ? "sidebar-option-active" : ""}`
+            }
           >
             Dashboard
-          </p>
-          <p
-            className={`sidebar-option ${
-              activeTab === "Subjects" && "sidebar-option-active"
-            }`}
-            onClick={() => {
-              navigate("/subjects");
-            }}
+          </NavLink>
+          <NavLink
+            to="/subjects"
+            className={({ isActive }) =>
+              `sidebar-option ${isActive ? "sidebar-option-active" : ""}`
+            }
           >
             Subjects
-          </p>
-          <p
-            className={`sidebar-option ${
-              activeTab === "QA" && "sidebar-option-active"
-            }`}
-            onClick={() => {
-              navigate("/qa");
-            }}
+          </NavLink>
+          <NavLink
+            to="/qa"
+            className={({ isActive }) =>
+              `sidebar-option ${isActive ? "sidebar-option-active" : ""}`
+            }
           >
             Question & Answers
-          </p>
-          <p
-            className={`sidebar-option ${
-              activeTab === "Announcements" && "sidebar-option-active"
-            }`}
-            onClick={() => {
-              navigate("/announcements");
-            }}
+          </NavLink>
+          <NavLink
+            to="/announcements"
+            className={({ isActive }) =>
+              `sidebar-option ${isActive ? "sidebar-option-active" : ""}`
+            }
           >
             Announcements
-          </p>
-          <p
-            className={`sidebar-option ${
-              activeTab === "ClassList" && "sidebar-option-active"
-            }`}
-            onClick={() => {
-              navigate("/classlist");
-            }}
+          </NavLink>
+          <NavLink
+            to="/classlist"
+            className={({ isActive }) =>
+              `sidebar-option ${isActive ? "sidebar-option-active" : ""}`
+            }
           >
             Class List
-          </p>
+          </NavLink>
         </div>
         <button
           className="sidebar-option w-full bg-[#f4c5cc]"
@@ -128,71 +116,60 @@ const Sidebar = ({ activeTab }) => {
         className={`z-10 hidden rounded-br-3xl rounded-tr-3xl bg-gradient-to-tr from-white to-blue-200/30 md:flex md:flex-col md:justify-between md:right-0 md:min-w-[20rem] md:h-screen md:bg-blue-white md:p-8 md:shadow-xl md:backdrop-blur-sm md:w-[10rem]`}
       >
         <div>
-          <div
+          <Link
+            to="/user/MarcLowelCastillo"
             className="flex gap-6 mb-8 cursor-pointer"
-            onClick={() => {
-              navigate("/user/MarcLowelCastillo");
-            }}
           >
             <img
               src="https://www.pixelstalk.net/wp-content/uploads/2016/07/3840x2160-Images-Free-Download.jpg"
               className="h-12 w-12 rounded-full"
+              alt="User"
             />
             <div>
               <p className="font-bold text-lg">Marc Lowel Castillo</p>
               <p className="text-xs">Class Officer</p>
             </div>
-          </div>
-          <p
-            className={`sidebar-option ${
-              activeTab === "Dashboard" && "sidebar-option-active"
-            }`}
-            onClick={() => {
-              navigate("/dashboard");
-            }}
+          </Link>
+          <NavLink
+            to="/dashboard"
+            className={({ isActive }) =>
+              `sidebar-option ${isActive ? "sidebar-option-active" : ""}`
+            }
           >
             Dashboard
-          </p>
-          <p
-            className={`sidebar-option ${
-              activeTab === "Subjects" && "sidebar-option-active"
-            }`}
-            onClick={() => {
-              navigate("/subjects");
-            }}
+          </NavLink>
+          <NavLink
+            to="/subjects"
+            className={({ isActive }) =>
+              `sidebar-option ${isActive ? "sidebar-option-active" : ""}`
+            }
           >
             Subjects
-          </p>
-          <p
-            className={`sidebar-option ${
-              activeTab === "QA" && "sidebar-option-active"
-            }`}
-            onClick={() => {
-              navigate("/qa");
-            }}
+          </NavLink>
+          <NavLink
+            to="/qa"
+            className={({ isActive }) =>
+              `sidebar-option ${isActive ? "sidebar-option-active" : ""}`
+            }
           >
             Question & Answers
-          </p>
-          <p
-            className={`sidebar-option ${
-              activeTab === "Announcements" && "sidebar-option-active"
-            } xl:hidden`}
-            onClick={() => {
-              navigate("/announcements");
-            }}
+          </NavLink>
+          <NavLink
+            to="/announcements"
+            className={({ isActive }) =>
+              `sidebar-option ${isActive ? "sidebar-option-active" : ""}`
+            }
           >
             Announcements
-          </p>
-          <p
-            className={`sidebar-option ${
-              activeTab === "ClassList" && "sidebar-option-active"
-            }`}
-            onClick={() => {
-              navigate("/classlist");
-            }}
+          </NavLink>
+          <NavLink
+            to="/classlist"
+            className={({ isActive }) =>
+              `sidebar-option ${isActive ? "sidebar-option-active" : ""}`
+            }
           >
             Class List
-          </p>
+          </NavLink>
         </div>
         <button
           className="sidebar-option w-full bg-[#f4c5cc] hover:bg-[#f4c5cc] "

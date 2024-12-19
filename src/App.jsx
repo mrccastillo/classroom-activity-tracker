@@ -9,6 +9,8 @@ import SubjectListPage from "./pages/SubjectListPage";
 import AnnouncementPage from "./pages/AnnouncementPage";
 
 function App() {
+  const user = localStorage.getItem("token");
+
   return (
     <BrowserRouter>
       <Routes>

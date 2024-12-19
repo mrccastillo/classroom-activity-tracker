@@ -20,6 +20,8 @@ const UserProfile = (props) => {
               <p className="text-xs">Class Officer</p>
             </div>
           </div>
+          {/* info container */}
+          <div></div>
         </div>
       </div>
     </>

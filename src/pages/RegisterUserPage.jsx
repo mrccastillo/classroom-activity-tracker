@@ -1,10 +1,11 @@
 import { useState, useReducer } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const initialState = {
   isLogin: true,
   signupSteps: 1,
-  loginDetails: { emailOrUsername: "", password: "" },
+  loginDetails: { username: "", password: "" },
   signupDetails: {
     username: "",
     password: "",
@@ -42,6 +43,41 @@ const RegisterUser = (props) => {
   const { isLogin, signupSteps, loginDetails, signupDetails } = state;
   const navigate = useNavigate();
 
+  async function handleLoginSubmit() {
+    try {
+      const response = await axios.post(
+        "https://classroom-activity-tracker.onrender.com/api/auth/login",
+        loginDetails
+      );
+      console.log(response.data);
+      localStorage.setItem("token", response.data.token);
+      navigate("/dashboard");
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function handleSignupSubmit() {
+    const signupForm = {
+      fullName: signupDetails.fullName,
+      email: signupDetails.email,
+      password: signupDetails.password,
+      username: signupDetails.username,
+    };
+
+    try {
+      const response = await axios.post(
+        "https://classroom-activity-tracker.onrender.com/api/auth/signup",
+        signupForm
+      );
+      console.log(response.data);
+      localStorage.setItem("token", response.data.token);
+      location.reload();
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   function handleInputChange(e) {
     if (isLogin) {
       dispatch({
@@ -54,16 +90,6 @@ const RegisterUser = (props) => {
         payload: { ...signupDetails, [e.target.name]: e.target.value },
       });
     }
-  }
-
-  function handleSignupSubmit() {
-    console.log(signupDetails);
-    navigate("/dashboard");
-  }
-
-  function handleLoginSubmit() {
-    console.log(loginDetails);
-    navigate("/dashboard");
   }
 
   return (
@@ -98,8 +124,8 @@ const RegisterUser = (props) => {
               type="text"
               className="login-input"
               placeholder="Username / Email"
-              name="emailOrUsername"
-              value={loginDetails.emailOrUsername}
+              name="username"
+              value={loginDetails.username}
               onChange={handleInputChange}
             />
             <input
