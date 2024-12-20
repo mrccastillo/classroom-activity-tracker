@@ -1,10 +1,12 @@
 import { useState, useReducer } from "react";
-import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { replace, useNavigate } from "react-router-dom";
+import { useUser } from "../contexts/UserContext";
 
 const initialState = {
   isLogin: true,
   signupSteps: 1,
-  loginDetails: { emailOrUsername: "", password: "" },
+  loginDetails: { username: "", password: "" },
   signupDetails: {
     username: "",
     password: "",
@@ -40,7 +42,41 @@ const reducer = (state, action) => {
 const RegisterUser = (props) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const { isLogin, signupSteps, loginDetails, signupDetails } = state;
+  const user = useUser();
   const navigate = useNavigate();
+
+  async function handleLoginSubmit() {
+    try {
+      const response = await axios.post(
+        "https://classroom-activity-tracker.onrender.com/api/auth/login",
+        loginDetails
+      );
+      // console.log(response.data);
+      user.login(response.data.token);
+      navigate("/", { replace: true });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function handleSignupSubmit() {
+    const signupForm = {
+      fullName: signupDetails.fullName,
+      email: signupDetails.email,
+      password: signupDetails.password,
+      username: signupDetails.username,
+    };
+
+    try {
+      const response = await axios.post(
+        "https://classroom-activity-tracker.onrender.com/api/auth/signup",
+        signupForm
+      );
+      location.reload();
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   function handleInputChange(e) {
     if (isLogin) {
@@ -54,16 +90,6 @@ const RegisterUser = (props) => {
         payload: { ...signupDetails, [e.target.name]: e.target.value },
       });
     }
-  }
-
-  function handleSignupSubmit() {
-    console.log(signupDetails);
-    navigate("/dashboard");
-  }
-
-  function handleLoginSubmit() {
-    console.log(loginDetails);
-    navigate("/dashboard");
   }
 
   return (
@@ -98,8 +124,8 @@ const RegisterUser = (props) => {
               type="text"
               className="login-input"
               placeholder="Username / Email"
-              name="emailOrUsername"
-              value={loginDetails.emailOrUsername}
+              name="username"
+              value={loginDetails.username}
               onChange={handleInputChange}
             />
             <input
@@ -133,7 +159,7 @@ const RegisterUser = (props) => {
                   onChange={handleInputChange}
                 />
                 <input
-                  type="confirm-password"
+                  type="password"
                   className="login-input"
                   placeholder="Confirm Password"
                   name="confirmPassword"
@@ -167,7 +193,7 @@ const RegisterUser = (props) => {
                   onChange={handleInputChange}
                 >
                   <option value="">Section</option>
-                  <option value="CS 1-5">CS 1-1</option>
+                  <option value="CS 1-1">CS 1-1</option>
                   <option value="CS 1-5">CS 1-5</option>
                 </select>
               </>

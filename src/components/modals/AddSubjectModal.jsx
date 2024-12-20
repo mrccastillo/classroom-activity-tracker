@@ -45,10 +45,10 @@ const AddSubjectModal = ({ onCloseModal }) => {
         </button>
       </div>
       <div
-        className="absolute top-0 right-0 p-4 cursor-pointer "
+        className="absolute -top-1 right-0 p-4 cursor-pointer text-2xl"
         onClick={onCloseModal}
       >
-        X
+        &times;
       </div>
 
       {/* <div className="absolute h-32 w-32 left-0 bottom-0 bg-gradient-to-br from-indigo-500 to-pink-500 rounded-full -z-10 blur-2xl"></div> */}
