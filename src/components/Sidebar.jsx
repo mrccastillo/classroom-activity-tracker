@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate, NavLink, Link } from "react-router-dom";
+import { useUser } from "../contexts/UserContext";
 
 const Sidebar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const user = useUser();
   const navigate = useNavigate();
 
   return (
@@ -104,6 +106,7 @@ const Sidebar = () => {
         <button
           className="sidebar-option w-full bg-[#f4c5cc]"
           onClick={() => {
+            user.logout();
             navigate("/");
           }}
         >
@@ -174,6 +177,7 @@ const Sidebar = () => {
         <button
           className="sidebar-option w-full bg-[#f4c5cc] hover:bg-[#f4c5cc] "
           onClick={() => {
+            user.logout();
             navigate("/");
           }}
         >

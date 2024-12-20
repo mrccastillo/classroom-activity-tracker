@@ -1,9 +1,15 @@
-import React from "react";
+import { useEffect } from "react";
 import Sidebar from "../components/Sidebar";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "../contexts/UserContext";
 
-const Dashboard = (props) => {
+const Dashboard = () => {
   const navigate = useNavigate();
+  const user = useUser();
+
+  useEffect(() => {
+    console.log("User: ", user.user);
+  }, []);
 
   return (
     <>

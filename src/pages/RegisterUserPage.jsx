@@ -1,6 +1,7 @@
 import { useState, useReducer } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "../contexts/UserContext";
 
 const initialState = {
   isLogin: true,
@@ -41,6 +42,7 @@ const reducer = (state, action) => {
 const RegisterUser = (props) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const { isLogin, signupSteps, loginDetails, signupDetails } = state;
+  const user = useUser();
   const navigate = useNavigate();
 
   async function handleLoginSubmit() {
@@ -49,8 +51,8 @@ const RegisterUser = (props) => {
         "https://classroom-activity-tracker.onrender.com/api/auth/login",
         loginDetails
       );
-      console.log(response.data);
-      localStorage.setItem("token", response.data.token);
+      // console.log(response.data);
+      user.login(response.data.token);
       navigate("/dashboard");
     } catch (error) {
       console.log(error);
