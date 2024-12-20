@@ -8,16 +8,19 @@ import SubjectPage from "./pages/SubjectPage";
 import SubjectListPage from "./pages/SubjectListPage";
 import AnnouncementPage from "./pages/AnnouncementPage";
 import { UserProvider } from "./contexts/UserContext";
+import { useUser } from "./contexts/UserContext";
 import ProtectedRoute from "./utils/ProtectedRoute";
 
 function App() {
+  const user = useUser();
+
   return (
     <UserProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<RegisterUser />} />
+          <Route path="/register" element={<RegisterUser />} />
           <Route
-            path="/dashboard"
+            path="/"
             element={
               <ProtectedRoute>
                 <Dashboard />

@@ -1,6 +1,6 @@
 import { useState, useReducer } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { replace, useNavigate } from "react-router-dom";
 import { useUser } from "../contexts/UserContext";
 
 const initialState = {
@@ -53,7 +53,7 @@ const RegisterUser = (props) => {
       );
       // console.log(response.data);
       user.login(response.data.token);
-      navigate("/dashboard");
+      navigate("/", { replace: true });
     } catch (error) {
       console.log(error);
     }

@@ -6,7 +6,7 @@ const ProtectedRoute = ({ children }) => {
   const user = useUser();
 
   if (!user.token) {
-    return <Navigate to="/" />;
+    return <Navigate to="/register" />;
   }
 
   return children;

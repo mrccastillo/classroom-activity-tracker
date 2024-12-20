@@ -7,6 +7,8 @@ const Sidebar = () => {
   const user = useUser();
   const navigate = useNavigate();
 
+  const { fullName, role } = user.user;
+
   return (
     <>
       {/* Mobile Nav*/}
@@ -58,12 +60,12 @@ const Sidebar = () => {
               alt="User"
             />
             <div>
-              <p className="font-bold text-lg">Marc Lowel Castillo</p>
-              <p className="text-xs">Class Officer</p>
+              <p className="font-bold text-lg">{fullName}</p>
+              <p className="text-xs">{role}</p>
             </div>
           </Link>
           <NavLink
-            to="/dashboard"
+            to="/"
             className={({ isActive }) =>
               `sidebar-option ${isActive ? "sidebar-option-active" : ""}`
             }
@@ -107,7 +109,7 @@ const Sidebar = () => {
           className="sidebar-option w-full bg-[#f4c5cc]"
           onClick={() => {
             user.logout();
-            navigate("/");
+            navigate("/register");
           }}
         >
           Logout
@@ -129,12 +131,12 @@ const Sidebar = () => {
               alt="User"
             />
             <div>
-              <p className="font-bold text-lg">Marc Lowel Castillo</p>
-              <p className="text-xs">Class Officer</p>
+              <p className="font-bold text-lg">{fullName}</p>
+              <p className="text-xs">{role}</p>
             </div>
           </Link>
           <NavLink
-            to="/dashboard"
+            to="/"
             className={({ isActive }) =>
               `sidebar-option ${isActive ? "sidebar-option-active" : ""}`
             }
@@ -178,7 +180,7 @@ const Sidebar = () => {
           className="sidebar-option w-full bg-[#f4c5cc] hover:bg-[#f4c5cc] "
           onClick={() => {
             user.logout();
-            navigate("/");
+            navigate("/register");
           }}
         >
           Logout
