@@ -72,8 +72,6 @@ const RegisterUser = (props) => {
         "https://classroom-activity-tracker.onrender.com/api/auth/signup",
         signupForm
       );
-      console.log(response.data);
-      localStorage.setItem("token", response.data.token);
       location.reload();
     } catch (error) {
       console.log(error);

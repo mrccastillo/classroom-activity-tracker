@@ -43,12 +43,12 @@ const Sidebar = () => {
       >
         <div>
           <div
-            className="absolute top-0 right-0 p-4 cursor-pointer"
+            className="absolute top-1 right-0 p-6 cursor-pointer text-3xl"
             onClick={() => {
               setIsSidebarOpen(false);
             }}
           >
-            X
+            &times;
           </div>
           <Link
             to="/user/MarcLowelCastillo"

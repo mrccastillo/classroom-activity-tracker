@@ -30,10 +30,10 @@ const AddQuestionModal = ({ dispatch }) => {
         </button>
       </div>
       <div
-        className="absolute top-0 right-0 p-4 cursor-pointer "
+        className="absolute -top-1 right-0 p-4 cursor-pointer text-2xl"
         onClick={() => dispatch({ type: "TOGGLE_QUESTION_MODAL" })}
       >
-        X
+        &times;
       </div>
     </div>
   );
