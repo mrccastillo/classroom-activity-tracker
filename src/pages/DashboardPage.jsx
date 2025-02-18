@@ -2,29 +2,54 @@ import { useEffect, useState } from "react";
 import Sidebar from "../components/Sidebar";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../contexts/UserContext";
+import { useStudentProfile } from "../contexts/StudentProfileContext";
 import axios from "axios";
 
 const Dashboard = () => {
   const [todos, setTodos] = useState([]);
   const navigate = useNavigate();
   const user = useUser();
+  const studentProfile = useStudentProfile();
 
   useEffect(() => {
-    console.log("User: ", user.user);
     const fetchTodos = async () => {
       try {
         const response = await axios.get(
-          `https://classroom-activity-tracker.onrender.com/api/todo/u?userId=${user.user._id}`
+          `https://classroom-activity-tracker.onrender.com/api/todo/u?userId=${user.user._id}`,
+          {
+            headers: {
+              Authorization: `${user.token}`,
+            },
+          }
         );
 
         setTodos(response.data);
-        console.log("Todos: ", response.data);
       } catch (error) {
         console.log("Error: ", error);
       }
     };
 
     fetchTodos();
+  }, []);
+
+  useEffect(() => {
+    const fetchStudentProfile = async () => {
+      try {
+        const response = await axios.get(
+          `https://classroom-activity-tracker.onrender.com/api/user?username=${user.user.username}`,
+          {
+            headers: {
+              Authorization: `${user.token}`,
+            },
+          }
+        );
+
+        studentProfile.updateStudentProfile(response.data.other.studentProfile);
+      } catch (error) {
+        console.log("Error: ", error);
+      }
+    };
+    fetchStudentProfile();
   }, []);
 
   return (

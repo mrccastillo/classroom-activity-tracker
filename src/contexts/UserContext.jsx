@@ -1,4 +1,4 @@
-import { useState, useContext, createContext, useEffect } from "react";
+import { useState, useContext, createContext } from "react";
 import decode from "../utils/decode";
 
 const UserContext = createContext(null);

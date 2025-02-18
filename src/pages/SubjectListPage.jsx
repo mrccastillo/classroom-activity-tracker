@@ -4,25 +4,27 @@ import axios from "axios";
 import Sidebar from "../components/Sidebar";
 import AddSubjectModal from "../components/modals/AddSubjectModal";
 import { useUser } from "../contexts/UserContext";
+import { useStudentProfile } from "../contexts/StudentProfileContext";
 
 const SubjectListPage = (props) => {
   const navigate = useNavigate();
   const [isAddSubjectOpen, setIsAddSubjectOpen] = useState(false);
   const [section, setSection] = useState([]);
   const user = useUser();
+  const studentProfile = useStudentProfile();
 
   useEffect(() => {
     const fetchSection = async () => {
       try {
         const response = await axios.get(
-          `https://classroom-activity-tracker.onrender.com/api/section?id=67a1dafd54f60a2632fb5647`,
+          `https://classroom-activity-tracker.onrender.com/api/section?id=${studentProfile.section}`,
           {
             headers: {
               Authorization: `${user.token}`,
             },
           }
         );
-        console.log("Section: ", response.data.subjects);
+        console.log("Subjects: ", response.data.subjects);
         setSection(response.data.subjects);
       } catch (error) {
         console.log("Error: ", error);

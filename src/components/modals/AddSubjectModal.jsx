@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useUser } from "../../contexts/UserContext";
+import { useStudentProfile } from "../../contexts/StudentProfileContext";
 import axios from "axios";
 
 const AddSubjectModal = ({ onCloseModal }) => {
   const [subjectName, setSubjectName] = useState("");
   const [instructorName, setInstructorName] = useState("");
   const [selectedColor, setSelectedColor] = useState("");
-  const user = useUser();
+  const { user, token } = useUser();
+  const studentProfile = useStudentProfile();
 
   function handleSubjectNameChange(e) {
     setSubjectName(e.target.value);
@@ -20,10 +22,32 @@ const AddSubjectModal = ({ onCloseModal }) => {
     setSelectedColor(color);
   }
 
-  function handleSubmit() {
-    console.log("Subject Name:", subjectName);
-    console.log("Instructor Name:", instructorName);
-    console.log("Selected Color:", selectedColor);
+  async function handleSubmit() {
+    // console.log("Subject Name:", subjectName);
+    // console.log("Instructor Name:", instructorName);
+    // console.log("Selected Color:", selectedColor);
+    console.log("Section: ", studentProfile);
+    // console.log(token);
+    try {
+      console.log(user._id);
+      const response = await axios.post(
+        `https://classroom-activity-tracker.onrender.com/api/subject?userId=${user._id}`,
+        {
+          subjectName: subjectName,
+          subjectColor: selectedColor,
+          professor: instructorName,
+          section: studentProfile.section,
+        },
+        {
+          headers: {
+            Authorization: `${token}`,
+          },
+        }
+      );
+      console.log("Response: ", response.data);
+    } catch (error) {
+      console.log("Error: ", error);
+    }
     // Add logic to handle the form submission
   }
 
