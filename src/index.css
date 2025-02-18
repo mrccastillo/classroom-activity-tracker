@@ -84,7 +84,7 @@ html {
   }
 
   .subject {
-    @apply bg-[#f4c5cc] flex justify-center items-center rounded-lg p-12 h-20 border-black border-[1px] font-semibold cursor-pointer md:w-52 md:h-52;
+    @apply flex justify-center items-center rounded-lg p-12 h-20 border-black border-[1px] font-semibold cursor-pointer md:w-52 md:h-52;
   }
 
   .question {

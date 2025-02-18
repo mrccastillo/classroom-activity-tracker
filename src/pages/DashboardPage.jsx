@@ -1,14 +1,30 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Sidebar from "../components/Sidebar";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../contexts/UserContext";
+import axios from "axios";
 
 const Dashboard = () => {
+  const [todos, setTodos] = useState([]);
   const navigate = useNavigate();
   const user = useUser();
 
   useEffect(() => {
     console.log("User: ", user.user);
+    const fetchTodos = async () => {
+      try {
+        const response = await axios.get(
+          `https://classroom-activity-tracker.onrender.com/api/todo/u?userId=${user.user._id}`
+        );
+
+        setTodos(response.data);
+        console.log("Todos: ", response.data);
+      } catch (error) {
+        console.log("Error: ", error);
+      }
+    };
+
+    fetchTodos();
   }, []);
 
   return (
@@ -20,7 +36,15 @@ const Dashboard = () => {
           <div className="grid grid-cols-2 grid-rows-3 bg-white/60 backdrop-blur-3xl gap-4 h-[calc(100vh-7rem)] w-full mt-4 lg:grid-cols-7  lg:p-4 lg:border-[1px] lg:max-h-[40rem] xl:max-w-[80rem] xl:border-2 border-black rounded-2xl ">
             <div className="overflow-y-auto p-4 col-span-2 w-full rounded-xl order-1 border-[1px] border-black lg:order-3 lg:col-span-3 lg:row-span-3">
               <h2 className="text-center text-xl font-bold ">Todos</h2>
-              <div className="mt-4 bg-blue-200 p-4 rounded-lg">
+              {todos.map((todo) => (
+                <div className="mt-4 bg-blue-200 p-4 rounded-lg">
+                  <h3 className="font-bold text-lg">{todo.todoName}</h3>
+                  <p className="text-sm">{todo.subject.subjectName}</p>
+                  <p className="text-sm">{todo.deadline}</p>
+                </div>
+              ))}
+
+              {/* <div className="mt-4 bg-blue-200 p-4 rounded-lg">
                 <h3 className="font-bold text-lg">Assignment #1</h3>
                 <p className="text-sm">Purposive Communication</p>
                 <p className="text-sm">Due Date: November 27, 2024</p>
@@ -44,7 +68,7 @@ const Dashboard = () => {
                 <h3 className="font-bold text-lg">Assignment #1</h3>
                 <p className="text-sm">Purposive Communication</p>
                 <p className="text-sm">Due Date: November 27, 2024</p>
-              </div>
+              </div> */}
             </div>
             <div className=" relative overflow-hidden flex flex-col justify-center items-center p-4   border-black border-[1px] col-span-1 rounded-xl order-3 lg:order-1 lg:col-span-2 ">
               <h2 className="text-xl font-bold z-10">Pending Tasks</h2>

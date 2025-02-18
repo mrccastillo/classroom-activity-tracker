@@ -1,8 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useUser } from "../../contexts/UserContext";
+import axios from "axios";
 
 const AddSubjectModal = ({ onCloseModal }) => {
-  function handleInputChange(e) {
-    console.log(e.target.value);
+  const [subjectName, setSubjectName] = useState("");
+  const [instructorName, setInstructorName] = useState("");
+  const [selectedColor, setSelectedColor] = useState("");
+  const user = useUser();
+
+  function handleSubjectNameChange(e) {
+    setSubjectName(e.target.value);
+  }
+
+  function handleInstructorNameChange(e) {
+    setInstructorName(e.target.value);
+  }
+
+  function handleColorChange(color) {
+    setSelectedColor(color);
+  }
+
+  function handleSubmit() {
+    console.log("Subject Name:", subjectName);
+    console.log("Instructor Name:", instructorName);
+    console.log("Selected Color:", selectedColor);
+    // Add logic to handle the form submission
   }
 
   return (
@@ -16,6 +38,8 @@ const AddSubjectModal = ({ onCloseModal }) => {
               className="p-2 w-full outline-none border-[1px] border-black rounded-lg mt-2"
               type="text"
               placeholder="Enter subject name"
+              value={subjectName}
+              onChange={handleSubjectNameChange}
             />
           </div>
           <div>
@@ -24,23 +48,68 @@ const AddSubjectModal = ({ onCloseModal }) => {
               className="p-2 w-full outline-none border-[1px] border-black rounded-lg mt-2"
               type="text"
               placeholder="Professor/Instructor Full Name"
+              value={instructorName}
+              onChange={handleInstructorNameChange}
             />
           </div>
           <div>
             <p>Pick a color:</p>
             <div className="flex flex-wrap gap-2 mt-2">
-              <div className="bg-red-400 h-8 w-8 rounded-lg"></div>
-              <div className="bg-blue-400 h-8 w-8 rounded-lg"></div>
-              <div className="bg-green-400 h-8 w-8 rounded-lg"></div>
-              <div className="bg-yellow-400 h-8 w-8 rounded-lg"></div>
-              <div className="bg-indigo-400 h-8 w-8 rounded-lg"></div>
-              <div className="bg-purple-400 h-8 w-8 rounded-lg"></div>
-              <div className="bg-pink-400 h-8 w-8 rounded-lg"></div>
-              <div className="bg-gray-400 h-8 w-8 rounded-lg"></div>
+              <div
+                className={`bg-red-400 h-8 w-8 rounded-lg ${
+                  selectedColor === "#f87171" ? "border-2 border-black" : ""
+                }`}
+                onClick={() => handleColorChange("#f87171")}
+              ></div>
+              <div
+                className={`bg-blue-400 h-8 w-8 rounded-lg ${
+                  selectedColor === "#60a5fa" ? "border-2 border-black" : ""
+                }`}
+                onClick={() => handleColorChange("#60a5fa")}
+              ></div>
+              <div
+                className={`bg-green-400 h-8 w-8 rounded-lg ${
+                  selectedColor === "#4ade80" ? "border-2 border-black" : ""
+                }`}
+                onClick={() => handleColorChange("#4ade80")}
+              ></div>
+              <div
+                className={`bg-yellow-400 h-8 w-8 rounded-lg ${
+                  selectedColor === "#facc15" ? "border-2 border-black" : ""
+                }`}
+                onClick={() => handleColorChange("#facc15")}
+              ></div>
+              <div
+                className={`bg-indigo-400 h-8 w-8 rounded-lg ${
+                  selectedColor === "#818cf8" ? "border-2 border-black" : ""
+                }`}
+                onClick={() => handleColorChange("#818cf8")}
+              ></div>
+              <div
+                className={`bg-purple-400 h-8 w-8 rounded-lg ${
+                  selectedColor === "#c084fc" ? "border-2 border-black" : ""
+                }`}
+                onClick={() => handleColorChange("#c084fc")}
+              ></div>
+              <div
+                className={`bg-pink-400 h-8 w-8 rounded-lg ${
+                  selectedColor === "#f472b6" ? "border-2 border-black" : ""
+                }`}
+                onClick={() => handleColorChange("#f472b6")}
+              ></div>
+              <div
+                className={`bg-gray-400 h-8 w-8 rounded-lg ${
+                  selectedColor === "#9ca3af" ? "border-2 border-black" : ""
+                }`}
+                onClick={() => handleColorChange("#9ca3af")}
+              ></div>
             </div>
           </div>
         </div>
-        <button className="w-full bg-blue-400 p-2 rounded-lg text-white">
+        <button
+          className="w-full bg-blue-400 p-2 rounded-lg text-white"
+          onClick={handleSubmit}
+        >
           Add Subject
         </button>
       </div>
